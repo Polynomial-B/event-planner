@@ -1,12 +1,12 @@
 import SearchForm from "@/components/SearchForm";
+import Title from "@/components/Title";
 import Link from "next/link";
 
 export default function Home() {
 	return (
 		<main className="flex flex-col items-center px-3 pt-36">
-			<h1 className="text-4xl lg:text-6xl font-extrabold text-pretty text-center inline-flex items-baseline">
-				Events in your area
-			</h1>
+			<Title>Events in your area</Title>
+
 			<p className="mb-12 mt-7 text-2xl lg:text-3xl opacity-80">
 				Find your{" "}
 				<span className="font-bold text-fuchsia-700 opacity-80">
