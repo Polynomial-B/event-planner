@@ -16,3 +16,7 @@
 	scrollbar-width: thin;
 	scrollbar-color: rgba(211, 135, 218, 0.549) rgba(255, 255, 255, 0.1);
 }
+
+.hover-effects {
+	@apply hover:scale-105 focus:scale-105 active:scale-100 transition;
+}

@@ -5,8 +5,8 @@ import React from "react";
 import Logo from "./Logo";
 import { headerRoutes } from "@/lib/constants";
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export default function Header() {
 	const activePathname = usePathname();
@@ -19,7 +19,7 @@ export default function Header() {
 						return (
 							<li
 								key={route.path}
-								className={clsx(
+								className={cn(
 									"text-slate hover:text-zinc-950 transition relative",
 									{
 										"opacity-80":
