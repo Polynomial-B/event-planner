@@ -1,22 +1,32 @@
 import EventsList from "@/components/EventsList";
 import Title from "@/components/Title";
-import { EventData, EventsPageProps } from "@/lib/types";
-import React from "react";
+import { EventsPageProps } from "@/lib/types";
+import { Suspense } from "react";
+import Loading from "./loading";
+import { capitalise } from "@/lib/utils";
+import { Metadata } from "next";
+
+export function generateMetadata({ params }: EventsPageProps): Metadata {
+	const { city } = params;
+	console.log(city);
+	return {
+		title: city === "all" ? "All Events" : `Events in ${capitalise(city)}`,
+	};
+}
 
 export default async function EventsPage({ params }: EventsPageProps) {
 	const { city } = params;
-	const capitalisedCity = city.charAt(0).toUpperCase() + city.slice(1);
-	const response = await fetch(
-		`https://bytegrad.com/course-assets/projects/evento/api/events?city=${city}`
-	);
-	const events: EventData[] = await response.json();
 
 	return (
 		<main className="flex flex-col items-center py-24 px-20 min-h-[110vh]">
 			<Title className="mb-28">
-				{city === "all" ? "All Events" : `Events in ${capitalisedCity}`}
+				{city === "all"
+					? "All Events"
+					: `Events in ${capitalise(city)}`}
 			</Title>
-			<EventsList events={events} />
+			<Suspense fallback={<Loading />}>
+				<EventsList city={city} />
+			</Suspense>
 		</main>
 	);
 }

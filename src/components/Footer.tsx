@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Footer() {
 	return (
-		<footer className="flex flex-row items-center justify-between w-full p-6 fixed left-0 bottom-0">
+		<footer className="flex flex-row items-center justify-between w-full p-2 fixed left-0 bottom-0 bg-auto z-2 bg-fuchsia-200">
 			<small>© ML {new Date().getFullYear()}</small>
 			<ul className="flex gap-x-3 sm:gap-x-8">
 				{footerRoutes.map((route) => (
