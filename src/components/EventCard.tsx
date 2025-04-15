@@ -1,13 +1,29 @@
+"use client";
+
 import { EventType } from "@/lib/types";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
+
+const MotionLink = motion(Link);
 
 export default function EventCard({ event }: { event: EventType }) {
+	const ref = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: ref,
+		offset: ["0 1", "1.5 1"],
+	});
+	const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+	const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+
 	return (
-		<Link
+		<MotionLink
+			ref={ref}
 			href={`/event/${event.slug}`}
 			className="flex-1 basis-80 max-w-[400px] min-w-[300]"
+			style={{ scale: scaleProgress, opacity: opacityProgress }}
+			initial={{ scale: 0, opacity: 0.8 }}
 		>
 			<section className="flex flex-col h-full bg-white/30 rounded-xl overflow-hidden relative hover-effects">
 				<Image
@@ -37,6 +53,6 @@ export default function EventCard({ event }: { event: EventType }) {
 					</p>
 				</section>
 			</section>
-		</Link>
+		</MotionLink>
 	);
 }
