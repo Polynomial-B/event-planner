@@ -8,7 +8,7 @@ import { Metadata } from "next";
 
 export function generateMetadata({ params }: EventsPageProps): Metadata {
 	const { city } = params;
-	console.log(city);
+
 	return {
 		title: city === "all" ? "All Events" : `Events in ${capitalise(city)}`,
 	};

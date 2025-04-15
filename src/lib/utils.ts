@@ -17,15 +17,15 @@ export async function getEvents(city: string): Promise<EventData[]> {
   if (!response.ok) {
     throw new Error(`Failed to fetch events: ${response.status}`);
   }
-  const data = response.json();
+  const data = await response.json();
   return data;
 }
 
 export async function getEvent(slug: string): Promise<EventType> {
-  const response = await fetch(`${BASE_URL}/api/events/${slug}`);
+  const response = await fetch(`${BASE_URL}api/events/${slug}`);
   if (!response.ok) {
     throw new Error(`Failed to fetch event: ${response.status}`);
   }
-  const data = response.json();
+  const data = await response.json();
   return data;
 }
