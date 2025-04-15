@@ -1,5 +1,5 @@
 import Title from "@/components/Title";
-import { capitalise } from "@/lib/utils";
+import { capitalise, getEvent } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
@@ -11,11 +11,8 @@ export async function generateMetadata({
 		slug: string;
 	};
 }): Promise<Metadata> {
-	const { slug } = params;
-	const response = await fetch(
-		`https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
-	);
-	const event = await response.json();
+	const { slug } = await params;
+	const event = await getEvent(slug);
 	return {
 		title: capitalise(event.name),
 	};
@@ -27,12 +24,7 @@ export default async function EventPage({
 	params: Promise<{ slug: string }>;
 }) {
 	const { slug } = await params;
-	const response = await fetch(
-		`https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
-	);
-
-	const event = await response.json();
-
+	const event = await getEvent(slug);
 	return (
 		<main>
 			<section className="relative overflow-hidden flex justify-center items-center py-14 md:py-20">

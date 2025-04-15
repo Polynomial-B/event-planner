@@ -1,8 +1,9 @@
+import { EventType } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function EventCard({ event }) {
+export default function EventCard({ event }: { event: EventType }) {
 	return (
 		<Link
 			href={`/event/${event.slug}`}
