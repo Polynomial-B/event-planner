@@ -1,6 +1,7 @@
 import { EventPlannerEvent } from "@/generated/prisma";
 import { capitalise } from "./utils";
 import prisma from "./db";
+import { notFound } from "next/navigation";
 
 export async function getEvents(city: string): Promise<EventPlannerEvent[]> {
   const events = await prisma.eventPlannerEvent.findMany({
@@ -25,5 +26,9 @@ export async function getEvent(slug: string) {
       slug: slug,
     },
   });
+
+  if (!data) {
+    return notFound();
+  }
   return data;
 }
