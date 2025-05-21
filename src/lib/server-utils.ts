@@ -3,7 +3,10 @@ import { capitalise } from "./utils";
 import prisma from "./db";
 import { notFound } from "next/navigation";
 
-export async function getEvents(city: string): Promise<EventPlannerEvent[]> {
+export async function getEvents(
+  city: string,
+  page = 1
+): Promise<EventPlannerEvent[]> {
   const events = await prisma.eventPlannerEvent.findMany({
     where: {
       // city: {
@@ -15,6 +18,8 @@ export async function getEvents(city: string): Promise<EventPlannerEvent[]> {
     orderBy: {
       date: "asc",
     },
+    take: 6,
+    skip: (page - 1) * 6,
   });
 
   return events;

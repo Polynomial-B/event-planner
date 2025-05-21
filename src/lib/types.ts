@@ -2,23 +2,18 @@ export type ContainerProps = {
   children: React.ReactNode;
 };
 
-export type EventsPageProps = {
+export type MetadataProps = {
   params: {
     city: string;
   };
+  searchParams: {
+    [key: string]: string | string[] | undefined;
+  };
 };
 
-// export type EventData = {
-//   id: string;
-//   name: string;
-//   slug: string;
-//   city: string;
-//   location: string;
-//   date: Date;
-// };
+export type EventsPageProps = MetadataProps & {};
 
-// export type EventType = EventData & {
-//   organizerName: string;
-//   imageUrl: string;
-//   description: string;
-// };
+export type EventsListProps = {
+  city: string;
+  page: number;
+};

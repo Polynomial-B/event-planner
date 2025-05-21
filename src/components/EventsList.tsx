@@ -3,10 +3,11 @@ import EventCard from "./EventCard";
 import { notFound } from "next/navigation";
 import { EventPlannerEvent } from "@/generated/prisma";
 import { getEvents } from "@/lib/server-utils";
+import { EventsListProps } from "@/lib/types";
 
-export default async function EventsList({ city }: { city: string }) {
+export default async function EventsList({ city, page }: EventsListProps) {
 	try {
-		const events = await getEvents(city);
+		const events = await getEvents(city, page);
 
 		if (!city?.length) {
 			return notFound();
