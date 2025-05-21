@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 export default function EventCard({ event }: { event: EventPlannerEvent }) {
 	const ref = useRef(null);
