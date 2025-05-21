@@ -16,7 +16,7 @@ export async function getEvents(city: string): Promise<EventPlannerEvent[]> {
   return events;
 }
 
-export async function getEvent(slug: string): Promise<EventPlannerEvent> {
+export async function getEvent(slug: string) {
   const data = await prisma.eventPlannerEvent.findUnique({
     where: {
       slug: slug,
