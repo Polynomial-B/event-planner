@@ -21,7 +21,7 @@ export default function EventCard({ event }: { event: EventPlannerEvent }) {
 		<MotionLink
 			ref={ref}
 			href={`/event/${event.slug}`}
-			className="flex-1 basis-80 max-w-[400px] min-w-[300]"
+			className="w-[300px] h-[300px]"
 			style={{ scale: scaleProgress, opacity: opacityProgress }}
 			initial={{ scale: 0, opacity: 0.8 }}
 		>
@@ -31,10 +31,12 @@ export default function EventCard({ event }: { event: EventPlannerEvent }) {
 					alt={event.name}
 					width={500}
 					height={280}
-					className="h-[60%] object-fit "
+					className="h-[60%] object-fit"
 				/>
 				<div className="flex flex-col flex-1 justify-center items-center">
-					<h2 className="text-2xl font-semibold">{event.name}</h2>
+					<h2 className="text-xl text-center font-extrabold text-balance">
+						{event.name}
+					</h2>
 					<p className="text-sm font-bold">{event.organizerName}</p>
 					<p className="italic opacity-70">{event.location}</p>
 				</div>
@@ -44,7 +46,7 @@ export default function EventCard({ event }: { event: EventPlannerEvent }) {
 							day: "2-digit",
 						})}
 					</p>
-					<p className="text-xs text-fuchsia-300 pt-1">
+					<p className="text-xs text-fuchsia-200 pt-1">
 						{new Date(event.date)
 							.toLocaleDateString("en-UK", {
 								month: "short",
