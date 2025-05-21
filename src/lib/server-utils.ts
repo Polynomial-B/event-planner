@@ -11,6 +11,9 @@ export async function getEvents(city: string): Promise<EventPlannerEvent[]> {
       // }, // for postgreSQL
       city: city === "all" ? undefined : capitalise(city),
     },
+    orderBy: {
+      date: "asc",
+    },
   });
 
   return events;
