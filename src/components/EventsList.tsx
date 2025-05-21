@@ -1,8 +1,8 @@
 import React from "react";
 import EventCard from "./EventCard";
 import { notFound } from "next/navigation";
-import { getEvents } from "@/lib/utils";
 import { EventPlannerEvent } from "@/generated/prisma";
+import { getEvents } from "@/lib/server-utils";
 
 export default async function EventsList({ city }: { city: string }) {
 	try {
