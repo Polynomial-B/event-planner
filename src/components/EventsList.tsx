@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { EventPlannerEvent } from "@/generated/prisma";
 import { getEvents } from "@/lib/server-utils";
 import { EventsListProps } from "@/lib/types";
+import PaginationControls from "./PaginationControls";
 
 export default async function EventsList({ city, page }: EventsListProps) {
 	try {
@@ -18,6 +19,7 @@ export default async function EventsList({ city, page }: EventsListProps) {
 				{events.map((event: EventPlannerEvent) => {
 					return <EventCard key={event.id} event={event} />;
 				})}
+				<PaginationControls />
 			</section>
 		);
 	} catch (e) {
