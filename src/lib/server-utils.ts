@@ -1,0 +1,26 @@
+import { EventPlannerEvent } from "@/generated/prisma";
+import { capitalise } from "./utils";
+import prisma from "./db";
+
+export async function getEvents(city: string): Promise<EventPlannerEvent[]> {
+  const events = await prisma.eventPlannerEvent.findMany({
+    where: {
+      // city: {
+      //   equals: city,
+      //   mode: "insensitive",
+      // }, // for postgreSQL
+      city: city === "all" ? undefined : capitalise(city),
+    },
+  });
+
+  return events;
+}
+
+export async function getEvent(slug: string): Promise<EventPlannerEvent> {
+  const data = await prisma.eventPlannerEvent.findUnique({
+    where: {
+      slug: slug,
+    },
+  });
+  return data;
+}
