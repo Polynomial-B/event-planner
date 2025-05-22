@@ -6,8 +6,10 @@ import Loading from "./loading";
 import { capitalise } from "@/lib/utils";
 import { Metadata } from "next";
 
-export function generateMetadata({ params }: MetadataProps): Metadata {
-	const { city } = params;
+export async function generateMetadata({
+	params,
+}: MetadataProps): Promise<Metadata> {
+	const { city } = await params;
 
 	return {
 		title: city === "all" ? "All Events" : `Events in ${capitalise(city)}`,
@@ -18,8 +20,9 @@ export default async function EventsPage({
 	params,
 	searchParams,
 }: EventsPageProps) {
-	const { city } = params;
-	const page = searchParams.page ?? 1;
+	const { city } = await params;
+	const sp = await searchParams;
+	const page = sp.page ?? 1;
 
 	return (
 		<main className="flex flex-col items-center py-24 px-20 min-h-[110vh]">
