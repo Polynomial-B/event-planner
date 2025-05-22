@@ -9,7 +9,7 @@ export default function PaginationControls() {
 				className="text-slate-600 px-3 py-3 bg-slate-400/40 border-l-2 w-40 text-center rounded-md 
            flex items-center justify-start gap-x-2 hover:bg-slate-400/100 transition-all text-sm"
 			>
-				<ArrowLeftIcon /> Previous
+				<ArrowLeftIcon /> Prev
 			</Link>
 			<Link
 				href="/events/all?page=2"
