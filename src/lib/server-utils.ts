@@ -1,12 +1,10 @@
-import { EventPlannerEvent } from "@/generated/prisma";
+// import { EventPlannerEvent } from "@/generated/prisma";
 import { capitalise } from "./utils";
 import prisma from "./db";
 import { notFound } from "next/navigation";
 
-export async function getEvents(
-  city: string,
-  page = 1
-): Promise<EventPlannerEvent[]> {
+export async function getEvents(city: string, page = 1) {
+  //: Promise<EventPlannerEvent[]> //
   const events = await prisma.eventPlannerEvent.findMany({
     where: {
       // city: {
@@ -22,7 +20,18 @@ export async function getEvents(
     skip: (page - 1) * 6,
   });
 
-  return events;
+  let totalCount;
+  if (city === "all") {
+    totalCount = await prisma.eventPlannerEvent.count();
+  } else {
+    totalCount = await prisma.eventPlannerEvent.count({
+      where: {
+        city: capitalise(city),
+      },
+    });
+  }
+
+  return { events, totalCount };
 }
 
 export async function getEvent(slug: string) {

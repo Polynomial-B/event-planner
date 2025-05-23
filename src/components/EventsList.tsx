@@ -8,7 +8,13 @@ import PaginationControls from "./PaginationControls";
 
 export default async function EventsList({ city, page }: EventsListProps) {
 	try {
-		const events = await getEvents(city, page);
+		const { events, totalCount } = await getEvents(city, page);
+		const prevPath = page > 1 ? `/events/${city}?page=${page - 1}` : "";
+		const nextPath =
+			totalCount > page * 6 ? `/events/${city}?page=${page + 1}` : "";
+
+		// console.log("page * 6: " + page * 6);
+		// console.log("total count: " + totalCount);
 
 		if (!city?.length) {
 			return notFound();
@@ -19,7 +25,7 @@ export default async function EventsList({ city, page }: EventsListProps) {
 				{events.map((event: EventPlannerEvent) => {
 					return <EventCard key={event.id} event={event} />;
 				})}
-				<PaginationControls />
+				<PaginationControls nextPath={nextPath} prevPath={prevPath} />
 			</section>
 		);
 	} catch (e) {
