@@ -6,7 +6,7 @@ import { getEvents } from "@/lib/server-utils";
 import { EventsListProps } from "@/lib/types";
 import PaginationControls from "./PaginationControls";
 
-export default async function EventsList({ city, page }: EventsListProps) {
+export default async function EventsList({ city, page = 1 }: EventsListProps) {
 	try {
 		const { events, totalCount } = await getEvents(city, page);
 		const prevPath = page > 1 ? `/events/${city}?page=${page - 1}` : "";

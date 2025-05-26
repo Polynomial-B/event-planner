@@ -15,5 +15,5 @@ export type EventsPageProps = MetadataProps & {};
 
 export type EventsListProps = {
   city: string;
-  page: number;
+  page?: number;
 };
