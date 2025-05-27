@@ -54,7 +54,7 @@ export default async function EventPage({
 					priority={true} // for image shifting - unecessary as absolute positioning
 				/>
 
-				<div className="z-1 flex flex-col gap-6 lg:gap-16 lg:flex-row relative">
+				<div className="z-1 flex flex-col gap-6 lg:gap-16 lg:flex-row relative mx-8">
 					<Image
 						src={event?.imageUrl}
 						alt={`image for ${event.name ?? "event"}`}
