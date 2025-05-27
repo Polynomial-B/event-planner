@@ -19,6 +19,21 @@ export async function generateMetadata({
 	};
 }
 
+// statically render selected dynamic routes for build
+export async function generateStaticParams() {
+	return [
+		{
+			slug: "solarpunk-futurism-exhibition",
+		},
+		{
+			slug: "radical-ecology-gathering",
+		},
+		{
+			slug: "trans-climate-march",
+		},
+	];
+}
+
 export default async function EventPage({
 	params,
 }: {
