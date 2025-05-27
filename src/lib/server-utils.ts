@@ -7,10 +7,7 @@ export async function getEvents(city: string, page = 1) {
   //: Promise<EventPlannerEvent[]> //
   const events = await prisma.eventPlannerEvent.findMany({
     where: {
-      // city: {
-      //   equals: city,
-      //   mode: "insensitive",
-      // }, // for postgreSQL
+      // city: { equals: city, mode: "insensitive" }, // for postgreSQL
       city: city === "all" ? undefined : capitalise(city),
     },
     orderBy: {
