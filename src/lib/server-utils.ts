@@ -1,11 +1,9 @@
-// import { EventPlannerEvent } from "@/generated/prisma";
 import "server-only";
 import { capitalise } from "./utils";
 import prisma from "./db";
 import { notFound } from "next/navigation";
 
 export async function getEvents(city: string, page = 1) {
-  //: Promise<EventPlannerEvent[]> //
   "use cache";
   const events = await prisma.eventPlannerEvent.findMany({
     where: {

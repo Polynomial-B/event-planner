@@ -1,5 +1,6 @@
 import Title from "@/components/Title";
 import { getEvent } from "@/lib/server-utils";
+import { EventPageProps } from "@/lib/types";
 import { capitalise } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -34,13 +35,8 @@ export async function generateStaticParams() {
 	];
 }
 
-export default async function EventPage({
-	params,
-}: {
-	params: Promise<{ slug: string }>;
-}) {
-	const { slug } = await params;
-	const event = await getEvent(slug);
+export default async function EventPage({ params }: EventPageProps) {
+	const event = await getEvent(params.slug);
 	return (
 		<main>
 			<section className="relative overflow-hidden flex justify-center items-center py-14 md:py-20">

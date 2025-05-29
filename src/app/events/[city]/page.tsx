@@ -1,6 +1,6 @@
 import EventsList from "@/components/EventsList";
 import Title from "@/components/Title";
-import { EventsPageProps, MetadataProps } from "@/lib/types";
+import { MetadataProps } from "@/lib/types";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { capitalise } from "@/lib/utils";
@@ -22,7 +22,7 @@ const pageNumberSchema = z.coerce.number().int().positive().optional();
 export default async function EventsPage({
 	params,
 	searchParams,
-}: EventsPageProps) {
+}: MetadataProps) {
 	const { city } = await params;
 	const sp = await searchParams;
 	// const page = sp.page ?? 1;

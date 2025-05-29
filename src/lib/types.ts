@@ -10,8 +10,9 @@ export type MetadataProps = {
     [key: string]: string | string[] | undefined;
   };
 };
-
-export type EventsPageProps = MetadataProps & {};
+export interface EventPageProps {
+  params: { slug: string };
+}
 
 export type EventsListProps = {
   city: string;
