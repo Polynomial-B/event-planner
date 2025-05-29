@@ -13,9 +13,6 @@ export default async function EventsList({ city, page = 1 }: EventsListProps) {
 		const nextPath =
 			totalCount > page * 6 ? `/events/${city}?page=${page + 1}` : "";
 
-		// console.log("page * 6: " + page * 6);
-		// console.log("total count: " + totalCount);
-
 		if (!city?.length) {
 			return notFound();
 		}
