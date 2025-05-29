@@ -1,4 +1,5 @@
 // import { EventPlannerEvent } from "@/generated/prisma";
+import "server-only";
 import { capitalise } from "./utils";
 import prisma from "./db";
 import { notFound } from "next/navigation";
