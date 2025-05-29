@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 export async function getEvents(city: string, page = 1) {
   //: Promise<EventPlannerEvent[]> //
+  "use cache";
   const events = await prisma.eventPlannerEvent.findMany({
     where: {
       // city: { equals: city, mode: "insensitive" }, // for postgreSQL
@@ -32,6 +33,7 @@ export async function getEvents(city: string, page = 1) {
 }
 
 export async function getEvent(slug: string) {
+  "use cache";
   const data = await prisma.eventPlannerEvent.findUnique({
     where: {
       slug: slug,
