@@ -148,16 +148,17 @@ const config = {
     "db"
   ],
   "activeProvider": "sqlite",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "file:./dev.db"
+        "value": null
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel EventPlannerEvent {\n  id            Int      @id @default(autoincrement())\n  name          String\n  slug          String   @unique\n  city          String\n  location      String\n  date          DateTime\n  organizerName String\n  imageUrl      String\n  description   String\n  createdAt     DateTime @default(now())\n  updatedAt     DateTime @updatedAt\n}\n",
-  "inlineSchemaHash": "f15804133c5af008a1cf89469489c332fa28754070789982ce6c59ba48a5af2f",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel EventPlannerEvent {\n  id            Int      @id @default(autoincrement())\n  name          String\n  slug          String   @unique\n  city          String\n  location      String\n  date          DateTime\n  organizerName String\n  imageUrl      String\n  description   String\n  createdAt     DateTime @default(now())\n  updatedAt     DateTime @updatedAt\n}\n",
+  "inlineSchemaHash": "ffb6aabdf5bff867f3752dbe8745c36b3c535f1cb9f00bcd2c9edd2cbe8fa42c",
   "copyEngine": true
 }
 config.dirname = '/'

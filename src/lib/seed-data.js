@@ -122,7 +122,7 @@ export const events = [
 		slug: "climate-anxiety-support-rave",
 		city: "Manchester",
 		location: "The White Hotel",
-		date: new Date("2025-08-12T22:00:00"),
+		date: new Date("2025-04-12T22:00:00"),
 		organizerName: "Therapeutic Activism",
 		imageUrl:
 			"https://images.unsplash.com/vector-1738163100667-a038a741944f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -161,7 +161,7 @@ export const events = [
 		slug: "radical-ecology-gathering",
 		city: "Bristol",
 		location: "The Cube Microplex",
-		date: new Date("2025-05-15T10:00:00"),
+		date: new Date("2025-06-15T10:00:00"),
 		organizerName: "Bristol Climate Justice Collective",
 		imageUrl:
 			"https://images.unsplash.com/photo-1508784411316-02b8cd4d3a3a",
@@ -183,12 +183,12 @@ export const events = [
 	},
 	{
 		id: 15,
-		name: "Decolonizing Scotland Symposium",
-		slug: "decolonizing-scotland-symposium",
+		name: "Wild Scotland Symposium",
+		slug: "wild-scotland-symposium",
 		city: "Edinburgh",
 		location: "Out of the Blue Drill Hall",
-		date: new Date("2025-07-08T09:30:00"),
-		organizerName: "Decolonial Scotland Network",
+		date: new Date("2025-08-08T09:30:00"),
+		organizerName: "Scotland Network",
 		imageUrl:
 			"https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1",
 		description:
@@ -242,7 +242,7 @@ export const events = [
 		date: new Date("2025-11-09T18:30:00"),
 		organizerName: "Red Glasgow Cinema",
 		imageUrl:
-			"hhttps://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		description:
 			"Screening documentaries on antifascist resistance, from Cable Street to today. Q&A with migrant justice organizers.",
 	},
@@ -252,7 +252,7 @@ export const events = [
 		slug: "feminist-strike-assembly",
 		city: "Edinburgh",
 		location: "The Autonomous Centre",
-		date: new Date("2025-03-08T11:00:00"),
+		date: new Date("2025-09-08T11:00:00"),
 		organizerName: "Edinburgh Feminist Collective",
 		imageUrl:
 			"https://images.unsplash.com/photo-1444465693019-aa0b6392460d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -261,8 +261,8 @@ export const events = [
 	},
 	{
 		id: 21,
-		name: "Anarcho-Feminist Conference",
-		slug: "anarcho-feminist-conference",
+		name: "Artivism Conference",
+		slug: "artivism-conference",
 		city: "Barcelona",
 		location: "Ateneu Rebel",
 		date: new Date("2025-05-30T10:00:00"),
