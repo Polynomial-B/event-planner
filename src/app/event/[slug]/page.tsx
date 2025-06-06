@@ -1,7 +1,5 @@
 import Title from "@/components/Title";
 import { getEvent } from "@/lib/server-utils";
-import { EventPageProps } from "@/lib/types";
-import { capitalise } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
@@ -9,14 +7,12 @@ import React from "react";
 export async function generateMetadata({
 	params,
 }: {
-	params: {
-		slug: string;
-	};
+	params: { slug: string };
 }): Promise<Metadata> {
-	const { slug } = await params;
+	const slug = params.slug;
 	const event = await getEvent(slug);
 	return {
-		title: capitalise(event.name),
+		title: event.name,
 	};
 }
 
@@ -35,8 +31,13 @@ export async function generateStaticParams() {
 	];
 }
 
-export default async function EventPage({ params }: EventPageProps) {
-	const event = await getEvent(params.slug);
+export default async function EventPage({
+	params,
+}: {
+	params: { slug: string };
+}) {
+	const slug = params.slug;
+	const event = await getEvent(slug);
 	return (
 		<main>
 			<section className="relative overflow-hidden flex justify-center items-center py-14 md:py-20">
